@@ -1,0 +1,53 @@
+TaskContext.jsx
+This file defines a context called TaskContext, which is used to manage the tasks. It exports a function called TaskContextProvider that creates a context provider. This provider contains a state variable called tasks, which is initially an empty array. It also has two functions called createTask and deleteTask that are used to create and delete tasks respectively.
+
+createTask takes a task object as a parameter, which contains the title and description of the task. It creates a new task object with a unique ID (the length of the tasks array), and adds it to the tasks state array using the setTasks function. The deleteTask function takes a taskId as a parameter and removes the task with that ID from the tasks state array using the filter function.
+
+Finally, the useEffect hook is used to set the initial state of the tasks array to the data array imported from ../data/task. This means that the initial tasks are loaded from the task.jsx file.
+
+App.jsx
+This file is the entry point of the application. It renders two components: TaskForm and TaskList. These components are used to create and list tasks respectively.
+
+TaskForm.jsx
+This file exports a component called TaskForm, which is used to create new tasks. It uses the useState hook to manage two state variables: title and description, which hold the title and description of the task respectively. It also uses the useContext hook to access the createTask function from the TaskContext.
+
+The handleSubmit function is called when the form is submitted. It prevents the default form submission behavior, calls the createTask function with the current title and description values, and then resets the state variables to their initial values.
+
+The TaskForm component renders a form with three inputs: title, description, and a submit button. The title and description inputs are two text fields, and the submit button is a regular button. When the form is submitted, the handleSubmit function is called.
+
+TaskList.jsx
+This file exports a component called TaskList, which is used to list the tasks. It uses the useContext hook to access the tasks array from the TaskContext. If the tasks array is empty, it renders a message saying that there are no tasks yet. Otherwise, it renders a list of TaskCard components, passing each task as a prop.
+
+TaskCard.jsx
+This file exports a component called TaskCard, which is used to display a single task. It receives a task object as a prop, which contains the title and description of the task. It also uses the useContext hook to access the deleteTask function from the TaskContext.
+
+The TaskCard component renders the title and description of the task, as well as a delete button. When the delete button is clicked, the deleteTask function is called with the ID of the task.
+
+
+
+
+
+TaskContext.jsx
+Este archivo define un contexto llamado TaskContext, que se utiliza para gestionar las tareas. Exporta una función llamada TaskContextProvider que crea un proveedor de contexto. Este proveedor contiene una variable de estado llamada tasks, que inicialmente es un array vacío. También tiene dos funciones llamadas createTask y deleteTask que se utilizan para crear y eliminar tareas respectivamente.
+
+createTask toma un objeto de tarea como parámetro, que contiene el título y la descripción de la tarea. Crea un nuevo objeto de tarea con un ID único (la longitud del array tasks) y lo agrega al array de estado tasks usando la función setTasks. La función deleteTask toma un ID de tarea como parámetro y elimina la tarea con ese ID del array de estado tasks usando la función filter.
+
+Por último, se utiliza el hook useEffect para establecer el estado inicial del array tasks en el array de datos importado desde ../data/task. Esto significa que las tareas iniciales se cargan desde el archivo task.jsx.
+
+App.jsx
+Este archivo es el punto de entrada de la aplicación. Renderiza dos componentes: TaskForm y TaskList. Estos componentes se utilizan para crear y listar tareas respectivamente.
+
+TaskForm.jsx
+Este archivo exporta un componente llamado TaskForm, que se utiliza para crear nuevas tareas. Utiliza el hook useState para gestionar dos variables de estado: title y description, que contienen el título y la descripción de la tarea respectivamente. También utiliza el hook useContext para acceder a la función createTask desde TaskContext.
+
+La función handleSubmit se llama cuando se envía el formulario. Evita el comportamiento de envío de formulario predeterminado, llama a la función createTask con los valores actuales de title y description, y luego restablece las variables de estado a sus valores iniciales.
+
+El componente TaskForm renderiza un formulario con tres entradas: title, description y un botón de envío. Las entradas de title y description son dos campos de texto, y el botón de envío es un botón regular. Cuando se envía el formulario, se llama a la función handleSubmit.
+
+TaskList.jsx
+Este archivo exporta un componente llamado TaskList, que se utiliza para listar las tareas. Utiliza el hook useContext para acceder al array de tareas desde TaskContext. Si el array de tareas está vacío, renderiza un mensaje que indica que aún no hay tareas. De lo contrario, renderiza una lista de componentes TaskCard, pasando cada tarea como una prop.
+
+TaskCard.jsx
+Este archivo exporta un componente llamado TaskCard, que se utiliza para mostrar una sola tarea. Recibe un objeto de tarea como prop, que contiene el título y la descripción de la tarea. También utiliza el hook useContext para acceder a la función deleteTask desde TaskContext.
+
+El componente TaskCard renderiza el título y la descripción de la tarea, así como un botón de eliminación. Cuando se hace clic en el botón de eliminación, se llama a la función deleteTask con el ID de la tarea.
